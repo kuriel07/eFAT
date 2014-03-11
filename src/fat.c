@@ -58,7 +58,7 @@ uint16 fat_ReadCluster(uint32 root_sector, uint16 offset, uint16 size, uchar * b
 	byte_read += (FAT_SECTOR_SIZE - offset);
 	buf += (FAT_SECTOR_SIZE - offset);
 	offset = 0;
-	a_offset += byte_read;
+	a_offset += FAT_SECTOR_SIZE;
 	goto next_sector;
 }
 
@@ -99,7 +99,7 @@ uint16 fat_WriteCluster(uint32 root_sector, uint16 offset, uint16 size, uchar * 
 	byte_write += (FAT_SECTOR_SIZE - offset);
 	buf += (FAT_SECTOR_SIZE - offset);
 	offset = 0;
-	a_offset += byte_write;
+	a_offset += FAT_SECTOR_SIZE;
 	goto next_sector;
 }
 
